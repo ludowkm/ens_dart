@@ -1,10 +1,7 @@
-import 'package:dotenv/dotenv.dart' as env;
-import 'package:flutter_test/flutter_test.dart';
-
 import 'package:ens_dart/ens_dart.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:web3dart/web3dart.dart';
-import 'package:web_socket_channel/io.dart';
 
 void main() {
   final names = [
@@ -22,17 +19,10 @@ void main() {
     '0x2cb86d919332d0369c66a2d5982419266f5e490f',
     '0x9c308bd202dddfca28f6cdce8e96b1e209833473',
   ];
-  group('ENS Tests', () {
-    env.load();
+  test('ENS Tests', () async {
+    const rpcUrl = 'https://cloudflare-eth.com';
 
-    final infuraKey = env.env['INFURA_KEY'];
-
-    final rpcUrl = 'https://mainnet.infura.io/v3/$infuraKey';
-    final wsUrl = 'wss://mainnet.infura.io/ws/v3/$infuraKey';
-
-    final client = Web3Client(rpcUrl, Client(), socketConnector: () {
-      return IOWebSocketChannel.connect(wsUrl).cast<String>();
-    });
+    final client = Web3Client(rpcUrl, Client());
 
     final ens = Ens(client: client);
 

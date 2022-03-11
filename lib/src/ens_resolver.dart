@@ -98,6 +98,23 @@ extension EnsResolve on Ens {
     return _record;
   }
 
+  Future<String> getUrlRecord() async {
+    var map = <String, dynamic>{};
+
+    var _name = ENSUtils.describeEnum(EnsTextKey.url);
+    final _raw = await text(
+      nodeHash,
+      _name.replaceAll('_', '.'),
+    );
+
+    map.putIfAbsent(_name, () => _raw);
+
+    final _record = EnsTextRecord.fromMap(map);
+    setEnsTextRecord(_record);
+
+    return _record.url;
+  }
+
   /// Returns a Resolver Object, allowing you to query names from this specific resolver.
   /// Most useful when querying a different resolver that is different than is currently recorded on the registry.
   ///  E.g. migrating to a new resolver

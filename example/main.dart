@@ -1,20 +1,11 @@
 import 'package:ens_dart/ens_dart.dart';
-import 'package:dotenv/dotenv.dart' as env;
-
 import 'package:http/http.dart';
 import 'package:web3dart/web3dart.dart';
-import 'package:web_socket_channel/io.dart';
 
 Future<void> main() async {
-  env.load('../.env');
-  final infuraKey = env.env['INFURA_KEY'];
+  const rpcUrl = 'https://cloudflare-eth.com';
 
-  final rpcUrl = 'https://mainnet.infura.io/v3/$infuraKey';
-  final wsUrl = 'wss://mainnet.infura.io/ws/v3/$infuraKey';
-
-  final client = Web3Client(rpcUrl, Client(), socketConnector: () {
-    return IOWebSocketChannel.connect(wsUrl).cast<String>();
-  });
+  final client = Web3Client(rpcUrl, Client());
 
   final ens = Ens(client: client);
 
