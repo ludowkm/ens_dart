@@ -10,7 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   sha3: ^0.2.0
-  web3dart: ^2.3.3
+  web3dart_plus:
+    git:
+      url: https://github.com/avacus-system/web3dart-plus.git
   web_socket_channel: ^3.0.0
   fast_base58: ^0.2.1
   http: ^0.13.4

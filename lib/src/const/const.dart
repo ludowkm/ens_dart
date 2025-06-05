@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:web3dart/web3dart.dart';
+import 'package:web3dart_plus/web3dart_plus.dart';
 
 final ENS =
     EthereumAddress.fromHex('0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72');

@@ -1,7 +1,7 @@
 import 'package:ens_dart/ens_dart.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
-import 'package:web3dart/web3dart.dart';
+import 'package:web3dart_plus/web3dart_plus.dart';
 
 void main() {
   final names = [

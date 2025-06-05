@@ -1,6 +1,6 @@
 import 'package:ens_dart/ens_dart.dart';
 import 'package:http/http.dart';
-import 'package:web3dart/web3dart.dart';
+import 'package:web3dart_plus/web3dart_plus.dart';
 
 Future<void> main() async {
   const rpcUrl = 'https://cloudflare-eth.com';
